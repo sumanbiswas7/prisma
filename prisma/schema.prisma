@@ -9,3 +9,10 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Students {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(255)
+  class     Int
+  createdAt DateTime @default(now())
+}
