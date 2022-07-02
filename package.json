@@ -9,6 +9,7 @@
   },
   "author": "suman biswas",
   "license": "ISC",
+  "type": "commonjs",
   "devDependencies": {
     "@types/express": "^4.17.13",
     "@types/node": "^18.0.0",

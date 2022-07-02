@@ -10,15 +10,16 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Profile {
+model User {
   id       Int      @id @default(autoincrement())
   name     String   @db.VarChar(100)
+  username String   @unique @db.VarChar(80)
   cratedAt DateTime @default(now())
   bio      String?
 
   Post Post[]
   Like Like[]
-  @@map(name: "profile")
+  @@map(name: "user")
 }
 
 model Post {
@@ -27,7 +28,7 @@ model Post {
   image     String?
   createdAt DateTime @default(now())
   profileId Int
-  author    Profile  @relation(fields: [profileId], references: [id])
+  author    User     @relation(fields: [profileId], references: [id])
 
   Like Like[]
   @@map(name: "post")
@@ -38,7 +39,7 @@ model Like {
   createdAt DateTime @default(now())
   profile   Int
   post      Int
-  userId    Profile  @relation(fields: [profile], references: [id])
+  userId    User     @relation(fields: [profile], references: [id])
   postId    Post     @relation(fields: [post], references: [id])
 
   @@map(name: "like")
