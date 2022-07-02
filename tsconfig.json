@@ -1,9 +1,12 @@
 {
-    "compilerOptions": {
-      "sourceMap": true,
-      "outDir": "dist",
-      "strict": true,
-      "lib": ["esnext"],
-      "esModuleInterop": true
-    }
+  "compilerOptions": {
+    "sourceMap": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "target": "ES2018",
+    "strict": true,
+    "lib": ["esnext"],
+    "esModuleInterop": true,
+    "module": "CommonJS"
   }
+}
