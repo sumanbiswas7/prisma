@@ -16,7 +16,14 @@ router.get("/posts", async (req, res) => {
             name: true,
             bio: true,
             cratedAt: true,
-            Post: true
+            Post: {
+                select: {
+                    id: true,
+                    caption: true,
+                    createdAt: true,
+                    Like: true
+                }
+            }
         }
     });
     res.status(200).send(users);
